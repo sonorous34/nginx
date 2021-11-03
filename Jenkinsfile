@@ -20,7 +20,7 @@ pipeline {
     }
     
     tools {
-        jdk openjdk""
+        jdk "openjdk"
         maven "maven"
         gradle "gradle"
     }
