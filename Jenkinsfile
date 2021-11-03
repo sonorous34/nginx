@@ -44,8 +44,12 @@ pipeline {
         }
         stage('02-K8S CICD') {
             steps {
-                echo '02-K8S CICD..'
-                sh './kube_deployment.sh'
+              withKubeConfig([credentialsId: 'jenkins', serverUrl: 'https://192.168.142.120:6443']) {
+                echo '02-K8S CICD deploy..'
+                sh 'kubectl create ns ${K8S_NAMESPACE}'
+                sh 'kubectl -n cicd create secret generic kube-secret --from-literal=username=jenkins --from-literal=password=admin1234!'
+                sh 'kubectl -n ${K8S_NAMESPACE} apply -f kube_deployment.sh'
+              }
             }
         }
 
