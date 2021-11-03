@@ -47,5 +47,3 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 80
-      imagePullSecrets:
-      - name: kube-secret
