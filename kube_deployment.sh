@@ -3,6 +3,7 @@
 NS_CHECK=""
 K8S_NAMESPACE="cicd"
 K8S_DEPLOYMENT="nginx-deployment.yaml"
+K8S_SECRET="kube-secret"
 
 NS_CHECK=$(kubectl get ns |grep ${K8S_NAMESPACE} | awk '{print $1}')
 echo "NS_CHECK: ${NS_CHECK}"
