@@ -39,9 +39,10 @@ pipeline {
         stage('02-K8S CICD') {
             steps {
                 echo '02-K8S CICD deploy..'
-                sh 'kubectl create ns ${K8S_NAMESPACE}'
-                sh 'kubectl -n ${K8S_NAMESPACE} create secret generic kube-secret --kubeconfig=/home/jenkins/.kube/config'
-                sh 'kubectl -n ${K8S_NAMESPACE} --kubeconfig=/home/jenkins/.kube/config apply -f nginx-deployment.yaml'
+                 sh './kube_deployment.sh'
+//                sh 'kubectl create ns ${K8S_NAMESPACE}'
+//                sh 'kubectl -n ${K8S_NAMESPACE} create secret generic kube-secret --kubeconfig=/home/jenkins/.kube/config'
+//                sh 'kubectl -n ${K8S_NAMESPACE} --kubeconfig=/home/jenkins/.kube/config apply -f nginx-deployment.yaml'
             }
         }
     }
