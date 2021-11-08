@@ -44,6 +44,5 @@ pipeline {
                 sh 'kubectl -n ${K8S_NAMESPACE} --kubeconfig=~/.kube/config apply -f nginx-deployment.yaml'
               }
             }
-        }
     }
 }
