@@ -19,12 +19,6 @@ pipeline {
         timeout(time: 60, unit: 'MINUTES')
     }
     
-    tools {
-        jdk "openjdk"
-        maven "maven"
-        gradle "gradle"
-    }
-    
     stages {
         stage('00-Set Environment') {
             steps {
