@@ -42,7 +42,7 @@ pipeline {
                 sh 'kubectl create ns ${K8S_NAMESPACE}'
                 sh 'kubectl -n ${K8S_NAMESPACE} create secret generic kube-secret --kubeconfig=~/.kube/config'
                 sh 'kubectl -n ${K8S_NAMESPACE} --kubeconfig=~/.kube/config apply -f nginx-deployment.yaml'
-              }
             }
+        }
     }
 }
